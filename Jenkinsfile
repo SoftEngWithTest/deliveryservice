@@ -1,10 +1,14 @@
 node {
-  stage('SCM Checkout') {
-    git 'https://github.com/SoftEngWithTest/deliveryservice.git'
-  }
-  stage('Compile-Package') {
-    // Get maven home path
-    def mvnHome = tool name: 'maven-3', type: 'maven'
-    sh "${mvnHome}/bin/mvn package"
-  }
+ stage 'checkout'
+ checkout scm
+
+stage 'build'
+ timeout(time: 15, unit: 'MINUTES') {
+ sh "./gradlew clean build"
+ }
+
+stage 'test'
+ timeout(time: 15, unit: 'MINUTES') {
+ sh "./gradlew test"
+ }
 }
