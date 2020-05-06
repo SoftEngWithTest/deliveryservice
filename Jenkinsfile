@@ -3,7 +3,7 @@ pipeline {
  
  
  tools {
-   gradle 'Gradle-6.4'
+   gradle 'gradle-1'
  }
  
  stages {
