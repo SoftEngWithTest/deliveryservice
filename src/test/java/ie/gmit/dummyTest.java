@@ -26,4 +26,10 @@ public class dummyTest {
         dC = new dummyClass();
         assertEquals(1, dC.getI());
     }
+
+    @Test
+    void test() {
+        int a = 1;
+        assertEquals(1, a);
+    }
 }
