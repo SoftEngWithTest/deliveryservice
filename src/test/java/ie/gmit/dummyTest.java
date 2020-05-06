@@ -26,11 +26,4 @@ public class dummyTest {
         dC = new dummyClass();
         assertEquals(1, dC.getI());
     }
-
-    @DisplayName("New branch test")
-    @Test
-    void newBranchTest() {
-        int a = 4;
-        assertEquals(5, a);
-    }
 }
