@@ -26,4 +26,13 @@ public class dummyTest {
         dC = new dummyClass();
         assertEquals(1, dC.getI());
     }
+
+    @DisplayName("Testing failure")
+    @Test
+    void testFailure() {
+        int a = 3;
+        int b = 2;
+
+        assertEquals(1, b+a);
+    }
 }
