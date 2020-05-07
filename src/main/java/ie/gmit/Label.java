@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 public class Label {
     private long uniqueID;
+    static private ArrayList<Long> orderIDList = new ArrayList<>();
 
     public Label(Customer customer) {
         this.uniqueID = generateUniqueID();
@@ -18,13 +19,30 @@ public class Label {
     }
 
     public long generateUniqueID() {
-        // Generating random number between 10000 and 20000
+        // Generating random number between 100000 and 200000
         long min = 100000;
         long max = 200000;
+        boolean alreadyExists = false;
 
         long ID = (long)(Math.random() * (max - min + 1) + min);
 
-        // Need to make sure it is unique
+        for (long id : orderIDList) {
+            if(id == ID) {
+                alreadyExists = true;
+            }
+            else {
+                alreadyExists = false;
+            }
+        }
+
+        if(alreadyExists == false) {
+            orderIDList.add(ID);
+        } else {
+            // ALREADY EXISTS
+            System.out.println("ID already exists - regenerating ID");
+            ID = (long)(Math.random() * (max - min + 1) + min);
+            // ...
+        }
 
         return ID;
     }

@@ -8,19 +8,22 @@ import org.json.simple.parser.ParseException;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class JSONParse {
 
-    public static void readJSON() {
+    public static ArrayList<Customer> readJSON(String fileName) {
         JSONParser jsonParser = new JSONParser();
+        ArrayList<Customer> customers = new ArrayList<>();
 
         try {
-            Object obj = jsonParser.parse(new FileReader("customers.json"));
+            Object obj = jsonParser.parse(new FileReader(fileName));
             JSONArray customerList = (JSONArray) obj;
 
             for(Object customer : customerList) {
                 JSONObject customerObject = (JSONObject) customer;
-                parseCustomerObject(customerObject);
+                Customer c = parseCustomerObject(customerObject);
+                customers.add(c);
             }
 
         } catch (FileNotFoundException e) {
@@ -30,9 +33,11 @@ public class JSONParse {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        return customers;
     }
 
-    public static void parseCustomerObject(JSONObject customerObject) {
+    public static Customer parseCustomerObject(JSONObject customerObject) {
         String firstName = (String) customerObject.get("firstName");
         String lastName = (String) customerObject.get("lastName");
         String email = (String) customerObject.get("email");
@@ -41,6 +46,7 @@ public class JSONParse {
         String eircode = (String) customerObject.get("eircode");
 
         Customer customer = new Customer(firstName, lastName, email, address, county, eircode);
-        Label label = new Label(customer);
+
+        return customer;
     }
 }
