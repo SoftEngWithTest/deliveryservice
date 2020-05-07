@@ -12,6 +12,10 @@ public class Order {
     }
 
     public void setOrderId(Integer orderId) {
+        String s = orderId.toString();
+        if(s.length()!=6){
+            throw new IllegalArgumentException("Order ID must be 6 digits long ");
+        }
         this.orderId = orderId;
     }
 }

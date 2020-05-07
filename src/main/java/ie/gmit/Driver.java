@@ -9,10 +9,10 @@ public class Driver {
     private String driverName;
 
 
-    public Driver (String packageId,String driverId,String driverName){
-        this.orderId = packageId;
-        this.driverId = driverId;
-        this.driverName = driverName;
+    public Driver (String orderId,String driverId,String driverName) {
+        setOrderId(orderId);
+        setDriverId(driverId);
+        setDriverName(driverName);
     }
     /**
      *Getters and setters
@@ -22,8 +22,8 @@ public class Driver {
     }
 
     public void setOrderId(String orderId) {
-        if (!orderId.matches("[0-9]+")) {
-            System.out.println("Invalid number");
+        if (!orderId.matches("[0-9]+") || orderId.length()!=6) {
+            throw new IllegalArgumentException("Invalid order ID number");
         }
         this.orderId = orderId;
     }
@@ -32,20 +32,25 @@ public class Driver {
         return driverId;
     }
 
-    public void setDriverId(String driverId) {
-        if (!driverId.matches("[0-9]+")) {
-            System.out.println("Invalid number");
+    public void setDriverId(String d) {
+        if ( d.length()!=6) {
+            throw new IllegalArgumentException("Invalid driver ID number length, must be 6 digits long");
         }
-        this.driverId = driverId;
+        else{
+            this.driverId = d;
+            }
+
     }
     public String getDriverName() {
         return driverName;
     }
 
     public void setDriverName(String driverName) {
-        this.driverName = driverName;
+        if (driverName.matches("[a-z A-Z_]+")) {
+            this.driverName = driverName;
+        }
+        else {
+            throw new IllegalArgumentException("Invalid driver name , can contain only letters");
+        }
     }
-
-
-
 }

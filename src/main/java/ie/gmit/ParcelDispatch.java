@@ -1,5 +1,6 @@
 package ie.gmit;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +17,7 @@ public class ParcelDispatch {
      */
     public void registerParcelDispatched(Driver driver){
         dispatchedList.add(driver);
+        System.out.println("Parcel dispatched");
     }
 
     /**
@@ -23,6 +25,7 @@ public class ParcelDispatch {
      */
     public void registerParcelReadyToDispatch(Order order){
         readyToDispatchList.add(order);
+        System.out.println("Parcel is ready for dispatch");
     }
 
     /**
