@@ -5,7 +5,6 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import java.awt.*;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -42,5 +41,6 @@ public class JSONParse {
         String eircode = (String) customerObject.get("eircode");
 
         Customer customer = new Customer(firstName, lastName, email, address, county, eircode);
+        Label label = new Label(customer);
     }
 }
