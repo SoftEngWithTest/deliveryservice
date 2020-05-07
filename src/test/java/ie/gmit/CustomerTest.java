@@ -23,6 +23,18 @@ public class CustomerTest {
         System.out.println("Testing Complete");
     }
 
+    @DisplayName("Checking Default Constructor Initialisation")
+    @Test
+    void testDefaultConstructor() {
+        myCustomer = new Customer();
+        assertEquals("", myCustomer.getFirstName());
+        assertEquals("", myCustomer.getLastName());
+        assertEquals("", myCustomer.getEmail());
+        assertEquals("", myCustomer.getAddress());
+        assertEquals("", myCustomer.getCounty());
+        assertEquals("", myCustomer.getEircode());
+    }
+
     @DisplayName("Checking Constructor Initialisation Success")
     @Test
     void testConstructorSuccess() {
