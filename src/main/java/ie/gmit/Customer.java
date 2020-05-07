@@ -91,16 +91,5 @@ public class Customer {
             throw new IllegalArgumentException("Eircode must follow the correct format e.g H78 J9K6");
         else
             this.eircode = eircode;
-
-
-
-
-        //if entered correctly
-        if(result) {
-            System.out.println("Eircode entered correctly");
-        }
-        else {
-            System.out.println("Eircode entered incorrectly");
-        }
     }
 }
