@@ -69,7 +69,7 @@ public class Label {
 
     public static ArrayList<Long> getOrderIDList() { return orderIDList; }
 
-    public static void setOrderIDList(ArrayList<Long> orderIDList) {
-        Label.orderIDList = orderIDList;
+    public void setOrderIDList(ArrayList<Long> orderIDList) {
+        this.orderIDList = orderIDList;
     }
 }
