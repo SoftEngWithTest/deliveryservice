@@ -24,7 +24,7 @@ public class LabelTest {
     @DisplayName("Testing Generate Label")
     @Test
     void testGenerateLabel() {
-        myCustomer = new Customer("john", "green", "johngreen@gmail.com", "47 Farrow Road", "Kerry", "T67 K9R5");
+        myCustomer = new Customer(888888, "john", "green", "johngreen@gmail.com", "47 Farrow Road", "Kerry", "T67 K9R5");
         myLabel = new Label(myCustomer);
     }
 }

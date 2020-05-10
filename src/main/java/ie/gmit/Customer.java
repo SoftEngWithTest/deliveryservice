@@ -4,6 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Customer {
+    private long customerID;
     private String firstName;
     private String lastName;
     private String email;
@@ -12,6 +13,7 @@ public class Customer {
     private String eircode;
 
     public Customer() {
+        this.customerID = 0;
         this.firstName = "";
         this.lastName = "";
         this.email = "";
@@ -20,7 +22,8 @@ public class Customer {
         this.eircode = "";
     }
 
-    public Customer(String firstName, String lastName, String email, String address, String county, String eircode) {
+    public Customer(long customerID, String firstName, String lastName, String email, String address, String county, String eircode) {
+        setCustomerID(customerID);
         setFirstName(firstName);
         setLastName(lastName);
         setEmail(email);
@@ -28,6 +31,10 @@ public class Customer {
         setCounty(county);
         setEircode(eircode);
     }
+
+    public long getCustomerID() { return customerID; }
+
+    public void setCustomerID(long customerID) { this.customerID = customerID; }
 
     public String getFirstName() { return firstName; }
 

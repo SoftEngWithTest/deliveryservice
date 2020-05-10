@@ -7,6 +7,7 @@ package ie.gmit;
 
 import org.json.simple.JSONObject;
 
+import javax.management.InstanceAlreadyExistsException;
 import java.util.ArrayList;
 
 public class Label {
@@ -29,6 +30,7 @@ public class Label {
         for (long id : orderIDList) {
             if(id == ID) {
                 alreadyExists = true;
+                throw new IllegalArgumentException("ID Already Exists");
             }
             else {
                 alreadyExists = false;
@@ -39,8 +41,8 @@ public class Label {
             orderIDList.add(ID);
         } else {
             // ALREADY EXISTS
-            System.out.println("ID already exists - regenerating ID");
-            ID = (long)(Math.random() * (max - min + 1) + min);
+            throw new IllegalArgumentException("ID already exists - regenerating ID");
+            //ID = (long)(Math.random() * (max - min + 1) + min);
             // ...
         }
 
@@ -50,6 +52,7 @@ public class Label {
     public void generateLabel(Customer customer) {
         // create JSON object
         JSONObject label = new JSONObject();
+        label.put("customerID", customer.getCustomerID());
         label.put("firstName", customer.getFirstName());
         label.put("lastName", customer.getLastName());
         label.put("email", customer.getEmail());
@@ -58,5 +61,15 @@ public class Label {
         label.put("orderID", this.uniqueID);
 
         System.out.println(label);
+    }
+
+    public long getUniqueID() { return uniqueID; }
+
+    public void setUniqueID(long uniqueID) { this.uniqueID = uniqueID; }
+
+    public static ArrayList<Long> getOrderIDList() { return orderIDList; }
+
+    public static void setOrderIDList(ArrayList<Long> orderIDList) {
+        Label.orderIDList = orderIDList;
     }
 }

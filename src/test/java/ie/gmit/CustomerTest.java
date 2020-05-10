@@ -27,6 +27,7 @@ public class CustomerTest {
     @Test
     void testDefaultConstructor() {
         myCustomer = new Customer();
+        assertEquals(0, myCustomer.getCustomerID());
         assertEquals("", myCustomer.getFirstName());
         assertEquals("", myCustomer.getLastName());
         assertEquals("", myCustomer.getEmail());
@@ -38,7 +39,7 @@ public class CustomerTest {
     @DisplayName("Checking Constructor Initialisation Success")
     @Test
     void testConstructorSuccess() {
-        myCustomer = new Customer("ruairi", "doherty", "rdoherty@gmail.com",
+        myCustomer = new Customer(999999, "ruairi", "doherty", "rdoherty@gmail.com",
                 "22 High Street", "Galway", "H77 K8Y9");
         assertEquals("ruairi", myCustomer.getFirstName());
         assertEquals("doherty", myCustomer.getLastName());
@@ -52,7 +53,7 @@ public class CustomerTest {
     @Test
     void testInvalidFirstNameEntry() {
         Exception e = assertThrows(IllegalArgumentException.class, () -> {
-            myCustomer = new Customer("r", "doherty", "rdoherty@gmail.com",
+            myCustomer = new Customer(777777, "r", "doherty", "rdoherty@gmail.com",
             "22 High Street", "Galway", "H77 K8Y9");
         });
         assertEquals("First name must be at least 2 characters", e.getMessage());
@@ -62,7 +63,7 @@ public class CustomerTest {
     @Test
     void testInvalidLastNameEntry() {
         Exception e = assertThrows(IllegalArgumentException.class, () -> {
-            myCustomer = new Customer("ruairi", "d", "rdoherty@gmail.com",
+            myCustomer = new Customer(666666, "ruairi", "d", "rdoherty@gmail.com",
                     "22 High Street", "Galway", "H77 K8Y9");
         });
         assertEquals("Last name must be at least 2 characters", e.getMessage());
@@ -72,7 +73,7 @@ public class CustomerTest {
     @Test
     void testInvalidEmailEntry() {
         Exception e = assertThrows(IllegalArgumentException.class, () -> {
-            myCustomer = new Customer("ruairi", "doherty", "@gmail.",
+            myCustomer = new Customer(577777, "ruairi", "doherty", "@gmail.",
                     "22 High Street", "Galway", "H77 K8Y9");
         });
         assertEquals("Email must be at least 10 characters", e.getMessage());
@@ -82,7 +83,7 @@ public class CustomerTest {
     @Test
     void testInvalidAddressEntry() {
         Exception e = assertThrows(IllegalArgumentException.class, () -> {
-            myCustomer = new Customer("ruairi", "doherty", "rdoherty@gmail.com",
+            myCustomer = new Customer(678989, "ruairi", "doherty", "rdoherty@gmail.com",
                     "22", "Galway", "H77 K8Y9");
         });
         assertEquals("Address must be at least 5 characters", e.getMessage());
@@ -92,7 +93,7 @@ public class CustomerTest {
     @Test
     void testInvalidCountyEntry() {
         Exception e = assertThrows(IllegalArgumentException.class, () -> {
-            myCustomer = new Customer("ruairi", "doherty", "rdoherty@gmail.com",
+            myCustomer = new Customer(976865, "ruairi", "doherty", "rdoherty@gmail.com",
                     "22 High Street", "G", "H77 K8Y9");
         });
         assertEquals("County must be at least 4 characters", e.getMessage());
@@ -102,7 +103,7 @@ public class CustomerTest {
     @Test
     void testInvalidEircodeEntry1() {
         Exception e = assertThrows(IllegalArgumentException.class, () -> {
-            myCustomer = new Customer("ruairi", "doherty", "rdoherty@gmail.com",
+            myCustomer = new Customer(6456897, "ruairi", "doherty", "rdoherty@gmail.com",
                     "22 High Street", "Galway", "H77");
         });
         assertEquals("Eircode must be 8 characters", e.getMessage());
@@ -112,7 +113,7 @@ public class CustomerTest {
     @Test
     void testInvalidEircodeEntry2() {
         Exception e = assertThrows(IllegalArgumentException.class, () -> {
-            myCustomer = new Customer("ruairi", "doherty", "rdoherty@gmail.com",
+            myCustomer = new Customer(4567548, "ruairi", "doherty", "rdoherty@gmail.com",
                     "22 High Street", "Galway", "H77 9999");
         });
         assertEquals("Eircode must follow the correct format e.g H78 J9K6", e.getMessage());

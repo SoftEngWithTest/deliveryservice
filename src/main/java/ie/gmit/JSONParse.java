@@ -34,10 +34,12 @@ public class JSONParse {
             e.printStackTrace();
         }
 
+        // Return array list of Customers
         return customers;
     }
 
     public static Customer parseCustomerObject(JSONObject customerObject) {
+        long customerID = (long) customerObject.get("customerID");
         String firstName = (String) customerObject.get("firstName");
         String lastName = (String) customerObject.get("lastName");
         String email = (String) customerObject.get("email");
@@ -45,7 +47,7 @@ public class JSONParse {
         String county = (String) customerObject.get("county");
         String eircode = (String) customerObject.get("eircode");
 
-        Customer customer = new Customer(firstName, lastName, email, address, county, eircode);
+        Customer customer = new Customer(customerID, firstName, lastName, email, address, county, eircode);
 
         return customer;
     }
