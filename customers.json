@@ -1,28 +1,31 @@
 [
-    {
-      "firstName": "Dave",
-      "lastName": "Kenny",
-      "email": "davekenny@gmail.com",
-      "address": "44 Grove Street",
-      "county": "Galway",
-      "eircode": "H78 Y8T5"
-    },
+  {
+    "customerID": 334456,
+    "firstName": "Dave",
+    "lastName": "Kenny",
+    "email": "davekenny@gmail.com",
+    "address": "44 Grove Street",
+    "county": "Galway",
+    "eircode": "H78 Y8T5"
+  },
 
-    {
-      "firstName": "John",
-      "lastName": "Madden",
-      "email": "johnmadden@gmail.com",
-      "address": "6 Hawthorn Crescent",
-      "county": "Dublin",
-      "eircode": "F56 Q4D4"
-    },
+  {
+    "customerID": 784567,
+    "firstName": "John",
+    "lastName": "Madden",
+    "email": "johnmadden@gmail.com",
+    "address": "6 Hawthorn Crescent",
+    "county": "Dublin",
+    "eircode": "F56 Q4D4"
+  },
 
-    {
-      "firstName": "Ryan",
-      "lastName": "Lally",
-      "email": "ronanlally@gmail.com",
-      "address": "22 Kilgarve Road",
-      "county": "Cork",
-      "eircode": "K78 P9K6"
-    }
+  {
+    "customerID": 967654,
+    "firstName": "Ryan",
+    "lastName": "Lally",
+    "email": "ronanlally@gmail.com",
+    "address": "22 Kilgarve Road",
+    "county": "Cork",
+    "eircode": "K78 P9K6"
+  }
 ]

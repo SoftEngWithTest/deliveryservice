@@ -25,12 +25,12 @@ public class JSONParseTest {
         System.out.println("Testing Complete");
     }
 
-    /*@DisplayName("Checking readJSON Method Success")
+    @DisplayName("Checking readJSON Method Success")
     @Test
     void testReadJSON() {
         myJSONParser = new JSONParse();
         myJSONParser.readJSON("customers.json");
-    }*/
+    }
 
     /*@DisplayName("Checking readJSON Method File Not Found")
     @Test
