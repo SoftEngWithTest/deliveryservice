@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: ie.gmit.JSONParseTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.06 s <<< FAILURE! - in ie.gmit.JSONParseTest
-ie.gmit.JSONParseTest.testReadJSON  Time elapsed: 0.022 s  <<< ERROR!
-java.lang.NullPointerException
-	at ie.gmit.JSONParseTest.testReadJSON(JSONParseTest.java:32)
-
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s - in ie.gmit.JSONParseTest

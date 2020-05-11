@@ -6,6 +6,6 @@ deliveryservice,ie.gmit,CustomerDB,0,74,0,4,0,17,0,6,0,4
 deliveryservice,ie.gmit,ParcelDispatch,169,0,10,0,38,0,12,0,7,0
 deliveryservice,ie.gmit,Controller,113,0,4,0,22,0,4,0,2,0
 deliveryservice,ie.gmit,DriverValidation,3,26,1,3,1,7,1,4,0,3
-deliveryservice,ie.gmit,JSONParse,71,33,1,1,20,7,2,2,1,2
+deliveryservice,ie.gmit,JSONParse,11,93,0,2,6,21,0,4,0,3
 deliveryservice,ie.gmit,Label,12,201,2,4,3,43,2,9,0,8
 deliveryservice,ie.gmit,Driver,14,82,2,8,5,26,3,11,1,8
