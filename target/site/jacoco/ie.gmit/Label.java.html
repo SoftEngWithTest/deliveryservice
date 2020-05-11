@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Label.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">deliveryservice</a> &gt; <a href="index.source.html" class="el_package">ie.gmit</a> &gt; <span class="el_source">Label.java</span></div><h1>Label.java</h1><pre class="source lang-java linenums">/* This class generates a label as a JSON Object which
+   includes the customer's details (which is received as a Customer object)
+   plus a randomly generated unique order ID
+ */
+
+package ie.gmit;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.json.simple.JSONObject;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Label {
+    private static long uniqueID;
+    public static String orderId;
+<span class="fc" id="L19">    static private ArrayList&lt;Long&gt; orderIDList = new ArrayList&lt;&gt;();</span>
+
+<span class="fc" id="L21">    public Label(Customer customer) throws JsonProcessingException {</span>
+<span class="fc" id="L22">        uniqueID = generateUniqueID();</span>
+<span class="fc" id="L23">        generateLabel(customer);</span>
+<span class="fc" id="L24">    }</span>
+
+    public long generateUniqueID() {
+        // Generating random number between 10000 and 20000
+<span class="fc" id="L28">        long min = 100000;</span>
+<span class="fc" id="L29">        long max = 200000;</span>
+<span class="fc" id="L30">        boolean alreadyExists = false;</span>
+
+<span class="fc" id="L32">        long ID = (long)(Math.random() * (max - min + 1) + min);</span>
+
+<span class="fc bfc" id="L34" title="All 2 branches covered.">        for (long id : orderIDList) {</span>
+<span class="pc bpc" id="L35" title="1 of 2 branches missed.">            if(id == ID) {</span>
+<span class="nc" id="L36">                alreadyExists = true;</span>
+<span class="nc" id="L37">                throw new IllegalArgumentException(&quot;ID Already Exists&quot;);</span>
+            }
+            else {
+<span class="fc" id="L40">                alreadyExists = false;</span>
+            }
+<span class="fc" id="L42">        }</span>
+
+<span class="pc bpc" id="L44" title="1 of 2 branches missed.">        if(alreadyExists == false) {</span>
+<span class="fc" id="L45">            orderIDList.add(ID);</span>
+        } else {
+            // ALREADY EXISTS
+<span class="nc" id="L48">            throw new IllegalArgumentException(&quot;ID already exists - regenerating ID&quot;);</span>
+            //ID = (long)(Math.random() * (max - min + 1) + min);
+            // ...
+        }
+
+<span class="fc" id="L53">        return ID;</span>
+    }
+
+<span class="fc" id="L56">    public static List &lt;String&gt; labelList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L57">    public static List &lt;String&gt; myList = new ArrayList&lt;&gt;();</span>
+
+    /**
+     *Creation of JSON object and deserialization
+     */
+    public static String generateLabel(Customer customer) throws JsonProcessingException {
+        // Create JSON object
+<span class="fc" id="L64">        JSONObject label = new JSONObject();</span>
+<span class="fc" id="L65">        label.put(&quot;firstName&quot;, customer.getFirstName());</span>
+<span class="fc" id="L66">        label.put(&quot;lastName&quot;, customer.getLastName());</span>
+<span class="fc" id="L67">        label.put(&quot;email&quot;, customer.getEmail());</span>
+<span class="fc" id="L68">        label.put(&quot;address&quot;, customer.getAddress());</span>
+<span class="fc" id="L69">        label.put(&quot;eircode&quot;, customer.getEircode());</span>
+<span class="fc" id="L70">        label.put(&quot;orderID&quot;, uniqueID);</span>
+
+<span class="fc" id="L72">        String list = label.toString();</span>
+        //Deserialising JSON into String object
+<span class="fc" id="L74">        ObjectMapper objectMapper = new ObjectMapper();</span>
+<span class="fc" id="L75">        String jsonString = objectMapper.writeValueAsString(label);</span>
+<span class="fc" id="L76">        System.out.println(jsonString);</span>
+<span class="fc" id="L77">        LabelModel labelModel = objectMapper.readValue(jsonString,LabelModel.class);</span>
+
+<span class="fc" id="L79">        String finalLabel = labelModel.getFirstName()+&quot; &quot;+labelModel.getLastName()+&quot;\n&quot;+labelModel.getAddress()+</span>
+<span class="fc" id="L80">                &quot;\n&quot;+labelModel.getEircode();</span>
+<span class="fc" id="L81">        orderId =  label.get(&quot;orderID&quot;).toString();</span>
+<span class="fc" id="L82">        labelList.add(orderId);</span>
+<span class="fc" id="L83">        myList.add(finalLabel);</span>
+
+<span class="fc" id="L85">        System.out.println(&quot;Clean Label: &quot;+ finalLabel);</span>
+<span class="fc" id="L86">        System.out.println(&quot;My LIST: &quot;+ myList);</span>
+<span class="fc" id="L87">        return list;</span>
+    }
+
+<span class="fc" id="L90">    public long getUniqueID() { return uniqueID; }</span>
+
+<span class="fc" id="L92">    public void setUniqueID(long uniqueID) { this.uniqueID = uniqueID; }</span>
+
+<span class="fc" id="L94">    public static ArrayList&lt;Long&gt; getOrderIDList() { return orderIDList; }</span>
+
+    public void setOrderIDList(ArrayList&lt;Long&gt; orderIDList) {
+<span class="fc" id="L97">        this.orderIDList = orderIDList;</span>
+<span class="fc" id="L98">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

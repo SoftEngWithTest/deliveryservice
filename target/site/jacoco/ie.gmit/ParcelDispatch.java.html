@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ParcelDispatch.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">deliveryservice</a> &gt; <a href="index.source.html" class="el_package">ie.gmit</a> &gt; <span class="el_source">ParcelDispatch.java</span></div><h1>ParcelDispatch.java</h1><pre class="source lang-java linenums">package ie.gmit;
+
+import javax.swing.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+/**
+ * Class responsible for dispatching operations
+ */
+<span class="nc" id="L11">public class ParcelDispatch {</span>
+
+<span class="nc" id="L13">   private List&lt;String&gt; deliveredList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L14">   private ArrayList&lt;Driver&gt; dispatchedList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L15">   private ArrayList&lt;String&gt;readyToDispatchList = new ArrayList();</span>
+<span class="nc" id="L16">   public static boolean orderMatch=false;</span>
+    /**
+     * Method registers package as &quot;Dispatched&quot; by van driver
+     */
+    public void registerParcelDispatched(Driver driver){
+<span class="nc" id="L21">        dispatchedList.add(driver);</span>
+<span class="nc" id="L22">        System.out.println(&quot;Parcel dispatched&quot;);</span>
+        //readyToDispatchList.remove(searchOrder(driver.getOrderId()));
+        //System.out.println(&quot;Order removed from LIST: &quot;+driver.getOrderId());
+<span class="nc" id="L25">    }</span>
+
+    /**
+     * Method registers package as &quot;Ready to dispatch&quot;
+     */
+    public void registerParcelReadyToDispatch(){
+
+<span class="nc bnc" id="L32" title="All 2 branches missed.">        for(int i =0;i&lt;Label.labelList.size();i++) {</span>
+<span class="nc" id="L33">            readyToDispatchList.add(Label.labelList.get(i));</span>
+        }
+<span class="nc" id="L35">        System.out.println(&quot;Parcels ready for dispatch: &quot;+readyToDispatchList);</span>
+<span class="nc" id="L36">    }</span>
+
+    /**
+     * This method is searching order in a list of &quot;ready to dispatch&quot;
+     */
+    public String searchOrder(String order){
+<span class="nc" id="L42">        Driver driver = new Driver();//(&quot;576734&quot;,&quot;000000&quot;,&quot;Sam&quot;);</span>
+<span class="nc" id="L43">        String result = driver.getOrderId();</span>
+<span class="nc bnc" id="L44" title="All 2 branches missed.">        for(String ord : readyToDispatchList)</span>
+        {
+<span class="nc bnc" id="L46" title="All 2 branches missed.">            if(ord.equals(order)){</span>
+
+<span class="nc" id="L48">                System.out.println(&quot;PARCEL MATCH&quot;);</span>
+<span class="nc" id="L49">                result = order;</span>
+<span class="nc" id="L50">                orderMatch = true;</span>
+            }
+            else{
+<span class="nc" id="L53">                System.out.println(&quot;NO MATCHING ORDER ID&quot;);</span>
+<span class="nc" id="L54">                result = null;</span>
+<span class="nc" id="L55">                orderMatch = false;</span>
+            }
+<span class="nc" id="L57">        }</span>
+<span class="nc" id="L58">        return result;</span>
+    }
+
+    public String searchDispatched(String orderRef){
+<span class="nc" id="L62">        String result = orderRef; //This is orderID provided to customer at POS</span>
+<span class="nc bnc" id="L63" title="All 2 branches missed.">        for(int i=0;i&lt;dispatchedList.size();i++){</span>
+<span class="nc" id="L64">            String order= dispatchedList.get(i).getOrderId();</span>
+<span class="nc bnc" id="L65" title="All 2 branches missed.">                if (orderRef.equals(order)) {</span>
+<span class="nc" id="L66">                    System.out.println(&quot;Parcel match&quot;);</span>
+<span class="nc" id="L67">                    result = orderRef;</span>
+<span class="nc" id="L68">                    confirmDelivery(i);</span>
+
+                } else {
+<span class="nc" id="L71">                    System.out.println(&quot;No matching parcel&quot;);</span>
+<span class="nc" id="L72">                    result = null;</span>
+                }
+            }
+<span class="nc" id="L75">        return result;</span>
+    }
+
+    public void confirmDelivery(int i){
+<span class="nc" id="L79">            deliveredList.add(dispatchedList.get(i).toString());</span>
+<span class="nc" id="L80">            System.out.println(&quot;Parcel ID number &quot; + dispatchedList.get(i).getOrderId()+&quot; registered as DELIVERED&quot;);</span>
+<span class="nc" id="L81">            dispatchedList.remove(i);</span>
+<span class="nc" id="L82">        }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

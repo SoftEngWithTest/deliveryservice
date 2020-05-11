@@ -7,7 +7,6 @@ package ie.gmit;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 import org.json.simple.JSONObject;
 
 import java.io.IOException;
@@ -17,6 +16,7 @@ import java.util.List;
 public class Label {
     private static long uniqueID;
     public static String orderId;
+    static private ArrayList<Long> orderIDList = new ArrayList<>();
 
     public Label(Customer customer) throws JsonProcessingException {
         uniqueID = generateUniqueID();
@@ -27,10 +27,28 @@ public class Label {
         // Generating random number between 10000 and 20000
         long min = 100000;
         long max = 200000;
+        boolean alreadyExists = false;
 
         long ID = (long)(Math.random() * (max - min + 1) + min);
 
-        // Need to make sure it is unique
+        for (long id : orderIDList) {
+            if(id == ID) {
+                alreadyExists = true;
+                throw new IllegalArgumentException("ID Already Exists");
+            }
+            else {
+                alreadyExists = false;
+            }
+        }
+
+        if(alreadyExists == false) {
+            orderIDList.add(ID);
+        } else {
+            // ALREADY EXISTS
+            throw new IllegalArgumentException("ID already exists - regenerating ID");
+            //ID = (long)(Math.random() * (max - min + 1) + min);
+            // ...
+        }
 
         return ID;
     }
@@ -67,6 +85,16 @@ public class Label {
         System.out.println("Clean Label: "+ finalLabel);
         System.out.println("My LIST: "+ myList);
         return list;
+    }
+
+    public long getUniqueID() { return uniqueID; }
+
+    public void setUniqueID(long uniqueID) { this.uniqueID = uniqueID; }
+
+    public static ArrayList<Long> getOrderIDList() { return orderIDList; }
+
+    public void setOrderIDList(ArrayList<Long> orderIDList) {
+        this.orderIDList = orderIDList;
     }
 
 }

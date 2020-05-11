@@ -1,12 +1,29 @@
 package ie.gmit;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class main {
-    public static void main(String[] args) {
-        JSONParse parser = new JSONParse();
+public class Controller {
+    public static void main(String[] args) throws JsonProcessingException {
+        ArrayList<Customer> customers;
+        CustomerDB customerDB = new CustomerDB();
 
-        parser.readJSON();
+        JSONParse parser = new JSONParse();
+        customers = parser.readJSON("customers.json");
+        for (Customer customer : customers) {
+            Label label = new Label(customer);
+
+            // send customer to DB to check if customer exists
+            // update details if needed
+
+            // If customer doesn't exist, then add them in
+            if(customerDB.existsAlready(customer) == false) {
+                customerDB.updateDB(customer);
+            }
+
+        }
 
         //switch case
         Driver driver = new Driver(Label.orderId,"888888","John");
