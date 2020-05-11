@@ -66,9 +66,8 @@ public class ParcelDispatch {
             String order= dispatchedList.get(i).getOrderId();
                 if (orderRef.equals(order)) {
                     System.out.println("Parcel match");
-                    result = orderRef;
                     confirmDelivery(i);
-
+                    result = orderRef;
                 } else {
                     System.out.println("No matching parcel");
                     result = null;
@@ -78,7 +77,7 @@ public class ParcelDispatch {
     }
 
     public void confirmDelivery(int i){
-            deliveredList.add(dispatchedList.get(i).toString());
+            deliveredList.add(dispatchedList.get(i).getOrderId());
             System.out.println("Parcel ID number " + dispatchedList.get(i).getOrderId()+" registered as DELIVERED");
             dispatchedList.remove(i);
         }
