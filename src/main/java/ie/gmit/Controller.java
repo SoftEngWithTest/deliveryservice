@@ -30,18 +30,20 @@ public class Controller {
 
         while (true)  {
 
-            System.out.println("Select option: \n1: Scan barcode\n2: Type in order ID\n 3: Confirm delivery\n");
+            System.out.println("Select option: \n1: Scan barcode\n2: Type in order ID\n3: Confirm delivery\n");
             Scanner s = new Scanner(System.in);
             int i = s.nextInt();
             switch (i) {
                 case 1:
                     // Scanning barcode
-                    Driver driver = new Driver(Label.orderId, "888888", "John");
+                    Driver driver = new Driver(Label.labelList.get(Label.labelList.size()-1), "909088", "John Ward");
                     parcelDispatch.searchOrder(driver.getOrderId());
                     parcelDispatch.registerParcelDispatched(driver);
                     System.out.println("Driver name: " + driver.getDriverName() + "\nDriver ID: " + driver.getDriverId() + "\nOrder ID: " +
-                            driver.getOrderId() + "\nLabel: " + Label.myList.get(Label.myList.size() - 1));
-                    System.out.println(driver.getOrderId());
+                            driver.getOrderId() + "\n***Label***\n" + Label.myList.get(Label.myList.size() - 1));
+                    Label.myList.remove(Label.myList.size() - 1);
+                    //System.out.println(parcelDispatch.dispatchedList.get());
+                    System.out.println("Parcels in the van: "+ parcelDispatch.dispatchedList.toString());
                     break;
                 case 2:
 

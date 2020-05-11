@@ -12,11 +12,6 @@ public class Driver {
     public Driver(){
 
     }
-    public Driver(String driverId,String driverName){
-        setDriverId(driverId);
-        setDriverName(driverName);
-
-    }
 
     public Driver (String orderId,String driverId,String driverName) {
         setOrderId(orderId);

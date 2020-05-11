@@ -11,75 +11,77 @@ import java.util.Scanner;
 <span class="fc" id="L11">public class ParcelDispatch {</span>
 
 <span class="fc" id="L13">   private List&lt;String&gt; deliveredList = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L14">   private ArrayList&lt;Driver&gt; dispatchedList = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L15">   private ArrayList&lt;String&gt;readyToDispatchList = new ArrayList();</span>
+<span class="fc" id="L14">   public ArrayList&lt;Driver&gt; dispatchedList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L15">   public ArrayList&lt;String&gt;readyToDispatchList = new ArrayList();</span>
 <span class="fc" id="L16">   public static boolean orderMatch=false;</span>
     /**
      * Method registers package as &quot;Dispatched&quot; by van driver
      */
     public void registerParcelDispatched(Driver driver){
-<span class="nc" id="L21">        dispatchedList.add(driver);</span>
-<span class="nc" id="L22">        System.out.println(&quot;Parcel dispatched&quot;);</span>
-        //readyToDispatchList.remove(searchOrder(driver.getOrderId()));
-        //System.out.println(&quot;Order removed from LIST: &quot;+driver.getOrderId());
-<span class="nc" id="L25">    }</span>
+
+<span class="fc" id="L22">            dispatchedList.add(driver);</span>
+<span class="fc" id="L23">            System.out.println(&quot;Parcel dispatched&quot;);</span>
+<span class="fc" id="L24">            readyToDispatchList.remove(searchOrder(driver.getOrderId()));</span>
+<span class="fc" id="L25">            System.out.println(&quot;Order removed from LIST: &quot; + driver.getOrderId());</span>
+
+<span class="fc" id="L27">    }</span>
 
     /**
      * Method registers package as &quot;Ready to dispatch&quot;
      */
     public void registerParcelReadyToDispatch(){
 
-<span class="nc bnc" id="L32" title="All 2 branches missed.">        for(int i =0;i&lt;Label.labelList.size();i++) {</span>
-<span class="nc" id="L33">            readyToDispatchList.add(Label.labelList.get(i));</span>
+<span class="fc bfc" id="L34" title="All 2 branches covered.">        for(int i =0;i&lt;Label.labelList.size();i++) {</span>
+<span class="fc" id="L35">            readyToDispatchList.add(Label.labelList.get(i));</span>
         }
-<span class="nc" id="L35">        System.out.println(&quot;Parcels ready for dispatch: &quot;+readyToDispatchList);</span>
-<span class="nc" id="L36">    }</span>
+<span class="fc" id="L37">        System.out.println(&quot;Parcels ready for dispatch: &quot;+readyToDispatchList);</span>
+<span class="fc" id="L38">    }</span>
 
     /**
      * This method is searching order in a list of &quot;ready to dispatch&quot;
      */
     public String searchOrder(String order){
-<span class="fc" id="L42">        Driver driver = new Driver();//(&quot;576734&quot;,&quot;000000&quot;,&quot;Sam&quot;);</span>
-<span class="fc" id="L43">        String result = driver.getOrderId();</span>
-<span class="pc bpc" id="L44" title="1 of 2 branches missed.">        for(String ord : readyToDispatchList)</span>
+       // Driver driver = new Driver();//(&quot;576734&quot;,&quot;000000&quot;,&quot;Sam&quot;);
+<span class="fc" id="L45">        String result = order ;//</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">        for(String ord : readyToDispatchList)</span>
         {
-<span class="nc bnc" id="L46" title="All 2 branches missed.">            if(ord.equals(order)){</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">            if(ord.equals(order)){</span>
 
-<span class="nc" id="L48">                System.out.println(&quot;PARCEL MATCH&quot;);</span>
-<span class="nc" id="L49">                result = order;</span>
-<span class="nc" id="L50">                orderMatch = true;</span>
+<span class="fc" id="L50">                System.out.println(&quot;PARCEL MATCH&quot;);</span>
+<span class="fc" id="L51">                result = order;</span>
+<span class="fc" id="L52">                orderMatch = true;</span>
             }
             else{
-<span class="nc" id="L53">                System.out.println(&quot;NO MATCHING ORDER ID&quot;);</span>
-<span class="nc" id="L54">                result = null;</span>
-<span class="nc" id="L55">                orderMatch = false;</span>
+<span class="fc" id="L55">                System.out.println(&quot;NO MATCHING ORDER ID&quot;);</span>
+<span class="fc" id="L56">                result = null;</span>
+<span class="fc" id="L57">                orderMatch = false;</span>
             }
-<span class="nc" id="L57">        }</span>
-<span class="fc" id="L58">        return result;</span>
+<span class="fc" id="L59">        }</span>
+<span class="fc" id="L60">        return result;</span>
     }
 
     public String searchDispatched(String orderRef){
-<span class="nc" id="L62">        String result = orderRef; //This is orderID provided to customer at POS</span>
-<span class="nc bnc" id="L63" title="All 2 branches missed.">        for(int i=0;i&lt;dispatchedList.size();i++){</span>
-<span class="nc" id="L64">            String order= dispatchedList.get(i).getOrderId();</span>
-<span class="nc bnc" id="L65" title="All 2 branches missed.">                if (orderRef.equals(order)) {</span>
-<span class="nc" id="L66">                    System.out.println(&quot;Parcel match&quot;);</span>
-<span class="nc" id="L67">                    result = orderRef;</span>
-<span class="nc" id="L68">                    confirmDelivery(i);</span>
+<span class="fc" id="L64">        String result = orderRef; //This is orderID provided to customer at POS</span>
+<span class="fc bfc" id="L65" title="All 2 branches covered.">        for(int i=0;i&lt;dispatchedList.size();i++){</span>
+<span class="fc" id="L66">            String order= dispatchedList.get(i).getOrderId();</span>
+<span class="fc bfc" id="L67" title="All 2 branches covered.">                if (orderRef.equals(order)) {</span>
+<span class="fc" id="L68">                    System.out.println(&quot;Parcel match&quot;);</span>
+<span class="fc" id="L69">                    result = orderRef;</span>
+<span class="fc" id="L70">                    confirmDelivery(i);</span>
 
                 } else {
-<span class="nc" id="L71">                    System.out.println(&quot;No matching parcel&quot;);</span>
-<span class="nc" id="L72">                    result = null;</span>
+<span class="fc" id="L73">                    System.out.println(&quot;No matching parcel&quot;);</span>
+<span class="fc" id="L74">                    result = null;</span>
                 }
             }
-<span class="nc" id="L75">        return result;</span>
+<span class="fc" id="L77">        return result;</span>
     }
 
     public void confirmDelivery(int i){
-<span class="nc" id="L79">            deliveredList.add(dispatchedList.get(i).toString());</span>
-<span class="nc" id="L80">            System.out.println(&quot;Parcel ID number &quot; + dispatchedList.get(i).getOrderId()+&quot; registered as DELIVERED&quot;);</span>
-<span class="nc" id="L81">            dispatchedList.remove(i);</span>
-<span class="nc" id="L82">        }</span>
+<span class="fc" id="L81">            deliveredList.add(dispatchedList.get(i).toString());</span>
+<span class="fc" id="L82">            System.out.println(&quot;Parcel ID number &quot; + dispatchedList.get(i).getOrderId()+&quot; registered as DELIVERED&quot;);</span>
+<span class="fc" id="L83">            dispatchedList.remove(i);</span>
+<span class="fc" id="L84">        }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

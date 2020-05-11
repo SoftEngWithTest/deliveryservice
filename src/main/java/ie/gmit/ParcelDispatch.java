@@ -11,17 +11,19 @@ import java.util.Scanner;
 public class ParcelDispatch {
 
    private List<String> deliveredList = new ArrayList<>();
-   private ArrayList<Driver> dispatchedList = new ArrayList<>();
-   private ArrayList<String>readyToDispatchList = new ArrayList();
+   public ArrayList<Driver> dispatchedList = new ArrayList<>();
+   public ArrayList<String>readyToDispatchList = new ArrayList();
    public static boolean orderMatch=false;
     /**
      * Method registers package as "Dispatched" by van driver
      */
     public void registerParcelDispatched(Driver driver){
-        dispatchedList.add(driver);
-        System.out.println("Parcel dispatched");
-        //readyToDispatchList.remove(searchOrder(driver.getOrderId()));
-        //System.out.println("Order removed from LIST: "+driver.getOrderId());
+
+            dispatchedList.add(driver);
+            System.out.println("Parcel dispatched");
+            readyToDispatchList.remove(searchOrder(driver.getOrderId()));
+            System.out.println("Order removed from LIST: " + driver.getOrderId());
+
     }
 
     /**
@@ -39,8 +41,8 @@ public class ParcelDispatch {
      * This method is searching order in a list of "ready to dispatch"
      */
     public String searchOrder(String order){
-        Driver driver = new Driver();//("576734","000000","Sam");
-        String result = driver.getOrderId();
+       // Driver driver = new Driver();//("576734","000000","Sam");
+        String result = order ;//
         for(String ord : readyToDispatchList)
         {
             if(ord.equals(order)){

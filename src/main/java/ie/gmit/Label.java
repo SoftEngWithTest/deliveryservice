@@ -82,8 +82,7 @@ public class Label {
         labelList.add(orderId);
         myList.add(finalLabel);
 
-        System.out.println("Clean Label: "+ finalLabel);
-        System.out.println("My LIST: "+ myList);
+        System.out.println("Customer Label: "+ finalLabel);
         return list;
     }
 

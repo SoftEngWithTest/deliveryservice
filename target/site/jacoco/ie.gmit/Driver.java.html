@@ -12,17 +12,12 @@ public class Driver {
 <span class="fc" id="L12">    public Driver(){</span>
 
 <span class="fc" id="L14">    }</span>
-<span class="nc" id="L15">    public Driver(String driverId,String driverName){</span>
-<span class="nc" id="L16">        setDriverId(driverId);</span>
-<span class="nc" id="L17">        setDriverName(driverName);</span>
 
-<span class="nc" id="L19">    }</span>
-
-<span class="fc" id="L21">    public Driver (String orderId,String driverId,String driverName) {</span>
-<span class="fc" id="L22">        setOrderId(orderId);</span>
-<span class="fc" id="L23">        setDriverId(driverId);</span>
-<span class="fc" id="L24">        setDriverName(driverName);</span>
-<span class="fc" id="L25">    }</span>
+<span class="fc" id="L16">    public Driver (String orderId,String driverId,String driverName) {</span>
+<span class="fc" id="L17">        setOrderId(orderId);</span>
+<span class="fc" id="L18">        setDriverId(driverId);</span>
+<span class="fc" id="L19">        setDriverName(driverName);</span>
+<span class="fc" id="L20">    }</span>
 
 
 
@@ -30,50 +25,50 @@ public class Driver {
      *Getters and setters
      */
     public String getOrderId() {
-<span class="fc" id="L33">        return orderId;</span>
+<span class="fc" id="L28">        return orderId;</span>
     }
 
     public void setOrderId(String orderId) {
-<span class="fc" id="L37">        Driver driver = new Driver();</span>
-<span class="fc" id="L38">        DriverValidation driverValidation = new DriverValidation();</span>
-<span class="fc" id="L39">        boolean validId = driverValidation.driverCheck(driver);</span>
+<span class="fc" id="L32">        Driver driver = new Driver();</span>
+<span class="fc" id="L33">        DriverValidation driverValidation = new DriverValidation();</span>
+<span class="fc" id="L34">        boolean validId = driverValidation.driverCheck(driver);</span>
 
 
-<span class="pc bpc" id="L42" title="1 of 4 branches missed.">        if (!orderId.matches(&quot;[0-9]+&quot;) || orderId.length()!=6) {</span>
-<span class="fc" id="L43">            throw new IllegalArgumentException(&quot;Invalid order ID number&quot;);</span>
+<span class="pc bpc" id="L37" title="1 of 4 branches missed.">        if (!orderId.matches(&quot;[0-9]+&quot;) || orderId.length()!=6) {</span>
+<span class="fc" id="L38">            throw new IllegalArgumentException(&quot;Invalid order ID number&quot;);</span>
         }
-<span class="pc bpc" id="L45" title="1 of 2 branches missed.">        else if(validId){</span>
-<span class="nc" id="L46">            throw  new IllegalArgumentException(&quot;Order id does not match&quot;);</span>
+<span class="pc bpc" id="L40" title="1 of 2 branches missed.">        else if(validId){</span>
+<span class="nc" id="L41">            throw  new IllegalArgumentException(&quot;Order id does not match&quot;);</span>
         }
         else
 
-<span class="fc" id="L50">        this.orderId = orderId;</span>
-<span class="fc" id="L51">    }</span>
+<span class="fc" id="L45">        this.orderId = orderId;</span>
+<span class="fc" id="L46">    }</span>
 
     public String getDriverId() {
-<span class="fc" id="L54">        return driverId;</span>
+<span class="fc" id="L49">        return driverId;</span>
     }
 
     public void setDriverId(String d) {
-<span class="fc bfc" id="L58" title="All 2 branches covered.">        if ( d.length()!=6) {</span>
-<span class="fc" id="L59">            throw new IllegalArgumentException(&quot;Invalid driver ID number length, must be 6 digits long&quot;);</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">        if ( d.length()!=6) {</span>
+<span class="fc" id="L54">            throw new IllegalArgumentException(&quot;Invalid driver ID number length, must be 6 digits long&quot;);</span>
         }
         else{
-<span class="fc" id="L62">            this.driverId = d;</span>
+<span class="fc" id="L57">            this.driverId = d;</span>
             }
 
-<span class="fc" id="L65">    }</span>
+<span class="fc" id="L60">    }</span>
     public String getDriverName() {
-<span class="fc" id="L67">        return driverName;</span>
+<span class="fc" id="L62">        return driverName;</span>
     }
 
     public void setDriverName(String driverName) {
-<span class="fc bfc" id="L71" title="All 2 branches covered.">        if (driverName.matches(&quot;[a-z A-Z_]+&quot;)) {</span>
-<span class="fc" id="L72">            this.driverName = driverName;</span>
+<span class="fc bfc" id="L66" title="All 2 branches covered.">        if (driverName.matches(&quot;[a-z A-Z_]+&quot;)) {</span>
+<span class="fc" id="L67">            this.driverName = driverName;</span>
         }
         else {
-<span class="fc" id="L75">            throw new IllegalArgumentException(&quot;Invalid driver name , can contain only letters&quot;);</span>
+<span class="fc" id="L70">            throw new IllegalArgumentException(&quot;Invalid driver name , can contain only letters&quot;);</span>
         }
-<span class="fc" id="L77">    }</span>
+<span class="fc" id="L72">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
