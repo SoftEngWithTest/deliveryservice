@@ -36,35 +36,32 @@ public class Controller {
             switch (i) {
                 case 1:
                     // Scanning barcode
-                    Driver driver = new Driver(Label.labelList.get(Label.labelList.size()-1), "909088", "John Ward");
+                    Driver driver = new Driver(Label.orderId, "909088", "John Ward");
                     parcelDispatch.searchOrder(driver.getOrderId());
                     parcelDispatch.registerParcelDispatched(driver);
-                    System.out.println("Driver name: " + driver.getDriverName() + "\nDriver ID: " + driver.getDriverId() + "\nOrder ID: " +
-                            driver.getOrderId() + "\n***Label***\n" + Label.myList.get(Label.myList.size() - 1));
+                    System.out.println("Driver name: " + driver.getDriverName() + "\nDriver ID: " + driver.getDriverId() + "\n" +
+                             "\n***Label***\n" + Label.myList.get(Label.myList.size() - 1)+"\n***********");
                     Label.myList.remove(Label.myList.size() - 1);
-                    //System.out.println(parcelDispatch.dispatchedList.get());
-                    System.out.println("Parcels in the van: "+ parcelDispatch.dispatchedList.toString());
+
                     break;
                 case 2:
-
-                        // Typing in manually order id
-                        Scanner sc = new Scanner(System.in);
-                        Driver dr = new Driver(sc.nextLine(), "888888", "John");
-                        parcelDispatch.searchOrder(dr.getOrderId());
-                        parcelDispatch.registerParcelDispatched(dr);
-                        System.out.println("Driver name: " + dr.getDriverName() + "\nDriver ID: " + dr.getDriverId() + "\nOrder ID: " +
-                                dr.getOrderId() + "\nLabel: " + Label.myList.get(Label.myList.size() - 1));
-
-                        break;
+                    // Manually type in order ID
+                    Scanner sc = new Scanner(System.in);
+                    Driver dr = new Driver(sc.nextLine(), "909088", "John Ward");
+                    parcelDispatch.searchOrder(dr.getOrderId());
+                    parcelDispatch.registerParcelDispatched(dr);
+                    System.out.println("Driver name: " + dr.getDriverName() + "\nDriver ID: " + dr.getDriverId() + "\nOrder ID: " +
+                            dr.getOrderId() + "\nLabel: " + Label.myList.get(Label.myList.size() - 1));
+                    break;
 
                 case 3:
-                    //Confirm delivery
+                    // Confirm delivery
                     Scanner scanner = new Scanner(System.in);
                     System.out.println("ENTER order ID : ");
                     parcelDispatch.searchDispatched(scanner.nextLine());
 
                 default:
-                    // code block
+
             }
 
             //switch case

@@ -77,7 +77,7 @@ public class Label {
         LabelModel labelModel = objectMapper.readValue(jsonString,LabelModel.class);
 
         String finalLabel = labelModel.getFirstName()+" "+labelModel.getLastName()+"\n"+labelModel.getAddress()+
-                "\n"+labelModel.getEircode();
+                "\n"+labelModel.getEircode()+"\n"+labelModel.getOrderID();
         orderId =  label.get("orderID").toString();
         labelList.add(orderId);
         myList.add(finalLabel);
@@ -85,6 +85,7 @@ public class Label {
         System.out.println("Customer Label: "+ finalLabel);
         return list;
     }
+
 
     public long getUniqueID() { return uniqueID; }
 

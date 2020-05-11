@@ -77,7 +77,7 @@ public class Label {
 <span class="fc" id="L77">        LabelModel labelModel = objectMapper.readValue(jsonString,LabelModel.class);</span>
 
 <span class="fc" id="L79">        String finalLabel = labelModel.getFirstName()+&quot; &quot;+labelModel.getLastName()+&quot;\n&quot;+labelModel.getAddress()+</span>
-<span class="fc" id="L80">                &quot;\n&quot;+labelModel.getEircode();</span>
+<span class="fc" id="L80">                &quot;\n&quot;+labelModel.getEircode()+&quot;\n&quot;+labelModel.getOrderID();</span>
 <span class="fc" id="L81">        orderId =  label.get(&quot;orderID&quot;).toString();</span>
 <span class="fc" id="L82">        labelList.add(orderId);</span>
 <span class="fc" id="L83">        myList.add(finalLabel);</span>
@@ -86,15 +86,16 @@ public class Label {
 <span class="fc" id="L86">        return list;</span>
     }
 
-<span class="fc" id="L89">    public long getUniqueID() { return uniqueID; }</span>
 
-<span class="fc" id="L91">    public void setUniqueID(long uniqueID) { this.uniqueID = uniqueID; }</span>
+<span class="fc" id="L90">    public long getUniqueID() { return uniqueID; }</span>
 
-<span class="fc" id="L93">    public static ArrayList&lt;Long&gt; getOrderIDList() { return orderIDList; }</span>
+<span class="fc" id="L92">    public void setUniqueID(long uniqueID) { this.uniqueID = uniqueID; }</span>
+
+<span class="fc" id="L94">    public static ArrayList&lt;Long&gt; getOrderIDList() { return orderIDList; }</span>
 
     public void setOrderIDList(ArrayList&lt;Long&gt; orderIDList) {
-<span class="fc" id="L96">        this.orderIDList = orderIDList;</span>
-<span class="fc" id="L97">    }</span>
+<span class="fc" id="L97">        this.orderIDList = orderIDList;</span>
+<span class="fc" id="L98">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
