@@ -1,5 +1,6 @@
 package ie.gmit;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -32,7 +33,7 @@ public class JSONParse {
         }
     }
 
-    public static void parseCustomerObject(JSONObject customerObject) {
+    public static void parseCustomerObject(JSONObject customerObject) throws JsonProcessingException {
         String firstName = (String) customerObject.get("firstName");
         String lastName = (String) customerObject.get("lastName");
         String email = (String) customerObject.get("email");

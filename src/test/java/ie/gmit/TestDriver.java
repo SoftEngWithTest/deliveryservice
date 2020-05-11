@@ -17,15 +17,22 @@ public class TestDriver {
     }
     @Test
     void driverNameFail(){
+
         assertThrows(IllegalArgumentException.class,()->new Driver("123456","999888","34"));
     }
     @Test
     void driverIdFail(){
-       assertThrows(IllegalArgumentException.class,()->new Driver("123456","12","Sarah"));
+
+        assertThrows(IllegalArgumentException.class,()->new Driver("123456","12","Sarah"));
     }
     @Test
-    void orderIdFail(){
+    void orderIdEntryFail(){
+
         assertThrows(IllegalArgumentException.class,()->new Driver("123","999888","John Smyth"));
+    }
+    @Test
+    void testOrderIdNotMatch(){
+        assertThrows(IllegalArgumentException.class,()->new Driver ("555555","123123","Colin Brown"));
     }
 
 }

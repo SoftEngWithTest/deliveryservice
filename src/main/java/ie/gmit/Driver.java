@@ -2,7 +2,7 @@ package ie.gmit;
 
 /**
  * Driver provides driver id ,order id and name
- * Driver manually inputs order id(unique) and need to validate with ID's that are stored in ready to dispatch List
+ * Driver scans barcode that holds order id(unique) or inputs manually and need to validate with ID's that are stored in ready to dispatch List
  */
 public class Driver {
     private String orderId;
@@ -12,19 +12,12 @@ public class Driver {
     public Driver(){
 
     }
-    public Driver(String driverId,String driverName){
-        setDriverId(driverId);
-        setDriverName(driverName);
-
-    }
 
     public Driver (String orderId,String driverId,String driverName) {
         setOrderId(orderId);
         setDriverId(driverId);
         setDriverName(driverName);
     }
-
-
 
     /**
      *Getters and setters
@@ -33,12 +26,12 @@ public class Driver {
         return orderId;
     }
 
+
     public void setOrderId(String orderId) {
         Driver driver = new Driver();
         DriverValidation driverValidation = new DriverValidation();
         boolean validId = driverValidation.driverCheck(driver);
-
-
+        //Validation of order ID if it is manually typed in
         if (!orderId.matches("[0-9]+") || orderId.length()!=6) {
             throw new IllegalArgumentException("Invalid order ID number");
         }

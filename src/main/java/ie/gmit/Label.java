@@ -55,7 +55,7 @@ public class Label {
         //Deserialising JSON into String object
         ObjectMapper objectMapper = new ObjectMapper();
         String jsonString = objectMapper.writeValueAsString(label);
-        System.out.println(jsonString);
+
         LabelModel labelModel = objectMapper.readValue(jsonString,LabelModel.class);
 
         String finalLabel = labelModel.getFirstName()+" "+labelModel.getLastName()+"\n"+labelModel.getAddress()+
@@ -63,9 +63,6 @@ public class Label {
         orderId =  label.get("orderID").toString();
         labelList.add(orderId);
         myList.add(finalLabel);
-
-        System.out.println("Clean Label: "+ finalLabel);
-        System.out.println("My LIST: "+ myList);
         return list;
     }
 

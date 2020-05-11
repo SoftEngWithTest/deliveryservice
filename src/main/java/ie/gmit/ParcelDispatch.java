@@ -14,14 +14,15 @@ public class ParcelDispatch {
    private ArrayList<Driver> dispatchedList = new ArrayList<>();
    private ArrayList<String>readyToDispatchList = new ArrayList();
    public static boolean orderMatch=false;
+
     /**
      * Method registers package as "Dispatched" by van driver
      */
     public void registerParcelDispatched(Driver driver){
         dispatchedList.add(driver);
         System.out.println("Parcel dispatched");
-        //readyToDispatchList.remove(searchOrder(driver.getOrderId()));
-        //System.out.println("Order removed from LIST: "+driver.getOrderId());
+        readyToDispatchList.remove(searchOrder(driver.getOrderId()));
+        System.out.println("Order removed from LIST: "+driver.getOrderId());
     }
 
     /**
