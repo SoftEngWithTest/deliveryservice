@@ -8,12 +8,12 @@ import java.util.Scanner;
 /**
  * Class responsible for dispatching operations
  */
-<span class="nc" id="L11">public class ParcelDispatch {</span>
+<span class="fc" id="L11">public class ParcelDispatch {</span>
 
-<span class="nc" id="L13">   private List&lt;String&gt; deliveredList = new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L14">   private ArrayList&lt;Driver&gt; dispatchedList = new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L15">   private ArrayList&lt;String&gt;readyToDispatchList = new ArrayList();</span>
-<span class="nc" id="L16">   public static boolean orderMatch=false;</span>
+<span class="fc" id="L13">   private List&lt;String&gt; deliveredList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L14">   private ArrayList&lt;Driver&gt; dispatchedList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L15">   private ArrayList&lt;String&gt;readyToDispatchList = new ArrayList();</span>
+<span class="fc" id="L16">   public static boolean orderMatch=false;</span>
     /**
      * Method registers package as &quot;Dispatched&quot; by van driver
      */
@@ -39,9 +39,9 @@ import java.util.Scanner;
      * This method is searching order in a list of &quot;ready to dispatch&quot;
      */
     public String searchOrder(String order){
-<span class="nc" id="L42">        Driver driver = new Driver();//(&quot;576734&quot;,&quot;000000&quot;,&quot;Sam&quot;);</span>
-<span class="nc" id="L43">        String result = driver.getOrderId();</span>
-<span class="nc bnc" id="L44" title="All 2 branches missed.">        for(String ord : readyToDispatchList)</span>
+<span class="fc" id="L42">        Driver driver = new Driver();//(&quot;576734&quot;,&quot;000000&quot;,&quot;Sam&quot;);</span>
+<span class="fc" id="L43">        String result = driver.getOrderId();</span>
+<span class="pc bpc" id="L44" title="1 of 2 branches missed.">        for(String ord : readyToDispatchList)</span>
         {
 <span class="nc bnc" id="L46" title="All 2 branches missed.">            if(ord.equals(order)){</span>
 
@@ -55,7 +55,7 @@ import java.util.Scanner;
 <span class="nc" id="L55">                orderMatch = false;</span>
             }
 <span class="nc" id="L57">        }</span>
-<span class="nc" id="L58">        return result;</span>
+<span class="fc" id="L58">        return result;</span>
     }
 
     public String searchDispatched(String orderRef){
