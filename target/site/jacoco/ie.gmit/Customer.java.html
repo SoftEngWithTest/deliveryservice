@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Customer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">deliveryservice</a> &gt; <a href="index.source.html" class="el_package">ie.gmit</a> &gt; <span class="el_source">Customer.java</span></div><h1>Customer.java</h1><pre class="source lang-java linenums">package ie.gmit;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Customer {
+    private long customerID;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String address;
+    private String county;
+    private String eircode;
+
+<span class="fc" id="L15">    public Customer() {</span>
+<span class="fc" id="L16">        this.customerID = 0;</span>
+<span class="fc" id="L17">        this.firstName = &quot;&quot;;</span>
+<span class="fc" id="L18">        this.lastName = &quot;&quot;;</span>
+<span class="fc" id="L19">        this.email = &quot;&quot;;</span>
+<span class="fc" id="L20">        this.address = &quot;&quot;;</span>
+<span class="fc" id="L21">        this.county = &quot;&quot;;</span>
+<span class="fc" id="L22">        this.eircode = &quot;&quot;;</span>
+<span class="fc" id="L23">    }</span>
+
+<span class="fc" id="L25">    public Customer(long customerID, String firstName, String lastName, String email, String address, String county, String eircode) {</span>
+<span class="fc" id="L26">        setCustomerID(customerID);</span>
+<span class="fc" id="L27">        setFirstName(firstName);</span>
+<span class="fc" id="L28">        setLastName(lastName);</span>
+<span class="fc" id="L29">        setEmail(email);</span>
+<span class="fc" id="L30">        setAddress(address);</span>
+<span class="fc" id="L31">        setCounty(county);</span>
+<span class="fc" id="L32">        setEircode(eircode);</span>
+<span class="fc" id="L33">    }</span>
+
+<span class="fc" id="L35">    public long getCustomerID() { return customerID; }</span>
+
+<span class="fc" id="L37">    public void setCustomerID(long customerID) { this.customerID = customerID; }</span>
+
+<span class="fc" id="L39">    public String getFirstName() { return firstName; }</span>
+
+    public void setFirstName(String firstName) {
+<span class="fc bfc" id="L42" title="All 2 branches covered.">        if(firstName.length() &lt; 2)</span>
+<span class="fc" id="L43">            throw new IllegalArgumentException(&quot;First name must be at least 2 characters&quot;);</span>
+        else
+<span class="fc" id="L45">            this.firstName = firstName;</span>
+<span class="fc" id="L46">    }</span>
+
+<span class="fc" id="L48">    public String getLastName() { return lastName; }</span>
+
+    public void setLastName(String lastName) {
+<span class="fc bfc" id="L51" title="All 2 branches covered.">        if(lastName.length() &lt; 2)</span>
+<span class="fc" id="L52">            throw new IllegalArgumentException(&quot;Last name must be at least 2 characters&quot;);</span>
+        else
+<span class="fc" id="L54">            this.lastName = lastName;</span>
+<span class="fc" id="L55">    }</span>
+
+<span class="fc" id="L57">    public String getEmail() { return email; }</span>
+
+    public void setEmail(String email) {
+<span class="fc bfc" id="L60" title="All 2 branches covered.">        if(email.length() &lt; 10)</span>
+<span class="fc" id="L61">            throw new IllegalArgumentException(&quot;Email must be at least 10 characters&quot;);</span>
+        else
+<span class="fc" id="L63">            this.email = email;</span>
+<span class="fc" id="L64">    }</span>
+
+<span class="fc" id="L66">    public String getAddress() { return address; }</span>
+
+    public void setAddress(String address) {
+<span class="fc bfc" id="L69" title="All 2 branches covered.">        if(address.length() &lt; 5)</span>
+<span class="fc" id="L70">            throw new IllegalArgumentException(&quot;Address must be at least 5 characters&quot;);</span>
+        else
+<span class="fc" id="L72">            this.address = address;</span>
+<span class="fc" id="L73">    }</span>
+
+<span class="fc" id="L75">    public String getCounty() { return county; }</span>
+
+    public void setCounty(String county) {
+<span class="fc bfc" id="L78" title="All 2 branches covered.">        if(county.length() &lt; 4)</span>
+<span class="fc" id="L79">            throw new IllegalArgumentException(&quot;County must be at least 4 characters&quot;);</span>
+        else
+<span class="fc" id="L81">            this.county = county;</span>
+<span class="fc" id="L82">    }</span>
+
+<span class="fc" id="L84">    public String getEircode() { return eircode; }</span>
+
+    public void setEircode(String eircode) {
+        //Using Regular Expressions to make sure correct Eircode format was used
+        //String regex is the correct format and will use this to compare to user entry
+<span class="fc" id="L89">        String regex = &quot;\\D\\d\\d\\s\\D\\d\\D\\d&quot;;</span>
+
+<span class="fc" id="L91">        Pattern pt = Pattern.compile(regex);</span>
+<span class="fc" id="L92">        Matcher m = pt.matcher(eircode);</span>
+<span class="fc" id="L93">        boolean result = m.matches();</span>
+
+<span class="fc bfc" id="L95" title="All 2 branches covered.">        if(eircode.length() != 8)</span>
+<span class="fc" id="L96">            throw new IllegalArgumentException(&quot;Eircode must be 8 characters&quot;);</span>
+<span class="fc bfc" id="L97" title="All 2 branches covered.">        else if(result == false)</span>
+<span class="fc" id="L98">            throw new IllegalArgumentException(&quot;Eircode must follow the correct format e.g H78 J9K6&quot;);</span>
+        else
+<span class="fc" id="L100">            this.eircode = eircode;</span>
+<span class="fc" id="L101">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -1,0 +1,12 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+deliveryservice,ie.gmit,Customer,0,170,0,14,0,56,0,23,0,16
+deliveryservice,ie.gmit,LabelModel,3,42,0,0,1,18,1,12,1,12
+deliveryservice,ie.gmit,Order,0,22,0,2,0,8,0,4,0,3
+deliveryservice,ie.gmit,CustomerDB,0,74,0,4,0,17,0,6,0,4
+deliveryservice,ie.gmit,ParcelDispatch,0,183,0,10,0,39,0,12,0,7
+deliveryservice,ie.gmit,Controller,176,0,8,0,33,0,7,0,2,0
+deliveryservice,ie.gmit,DriverValidation,0,29,0,4,0,8,0,5,0,3
+deliveryservice,ie.gmit,JSONParse,11,93,0,2,6,21,0,4,0,3
+deliveryservice,ie.gmit,dummyClass,0,12,0,0,0,5,0,2,0,2
+deliveryservice,ie.gmit,Label,12,196,2,4,3,42,2,9,0,8
+deliveryservice,ie.gmit,Driver,5,91,2,8,1,29,2,11,0,8

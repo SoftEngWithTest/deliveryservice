@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Driver.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">deliveryservice</a> &gt; <a href="index.source.html" class="el_package">ie.gmit</a> &gt; <span class="el_source">Driver.java</span></div><h1>Driver.java</h1><pre class="source lang-java linenums">package ie.gmit;
+
+/**
+ * Driver provides driver id ,order id and name
+ * Driver manually inputs order id(unique) and need to validate with ID's that are stored in ready to dispatch List
+ */
+public class Driver {
+    private String orderId;
+    private String driverId;
+    private String driverName;
+
+<span class="fc" id="L12">    public Driver(){</span>
+<span class="fc" id="L13">        orderId = &quot;&quot;;</span>
+<span class="fc" id="L14">        driverId = &quot;&quot;;</span>
+<span class="fc" id="L15">        driverName = &quot;&quot;;</span>
+<span class="fc" id="L16">    }</span>
+
+<span class="fc" id="L18">    public Driver (String orderId,String driverId,String driverName) {</span>
+<span class="fc" id="L19">        setOrderId(orderId);</span>
+<span class="fc" id="L20">        setDriverId(driverId);</span>
+<span class="fc" id="L21">        setDriverName(driverName);</span>
+<span class="fc" id="L22">    }</span>
+
+
+
+    /**
+     *Getters and setters
+     */
+    public String getOrderId() {
+<span class="fc" id="L30">        return orderId;</span>
+    }
+
+    public void setOrderId(String orderId) {
+<span class="fc" id="L34">        Driver driver = new Driver();</span>
+<span class="fc" id="L35">        DriverValidation driverValidation = new DriverValidation();</span>
+<span class="fc" id="L36">        boolean validId = driverValidation.driverCheck(driver);</span>
+
+
+<span class="pc bpc" id="L39" title="1 of 4 branches missed.">        if (!orderId.matches(&quot;[0-9]+&quot;) || orderId.length()!=6) {</span>
+<span class="fc" id="L40">            throw new IllegalArgumentException(&quot;Invalid order ID number&quot;);</span>
+        }
+<span class="pc bpc" id="L42" title="1 of 2 branches missed.">        else if(validId){</span>
+<span class="nc" id="L43">            throw  new IllegalArgumentException(&quot;Order id does not match&quot;);</span>
+        }
+        else
+
+<span class="fc" id="L47">            this.orderId = orderId;</span>
+<span class="fc" id="L48">    }</span>
+
+    public String getDriverId() {
+<span class="fc" id="L51">        return driverId;</span>
+    }
+
+    public void setDriverId(String d) {
+<span class="fc bfc" id="L55" title="All 2 branches covered.">        if ( d.length()!=6) {</span>
+<span class="fc" id="L56">            throw new IllegalArgumentException(&quot;Invalid driver ID number length, must be 6 digits long&quot;);</span>
+        }
+        else{
+<span class="fc" id="L59">            this.driverId = d;</span>
+        }
+
+<span class="fc" id="L62">    }</span>
+    public String getDriverName() {
+<span class="fc" id="L64">        return driverName;</span>
+    }
+
+    public void setDriverName(String driverName) {
+<span class="fc bfc" id="L68" title="All 2 branches covered.">        if (driverName.matches(&quot;[a-z A-Z_]+&quot;)) {</span>
+<span class="fc" id="L69">            this.driverName = driverName;</span>
+        }
+        else {
+<span class="fc" id="L72">            throw new IllegalArgumentException(&quot;Invalid driver name , can contain only letters&quot;);</span>
+        }
+<span class="fc" id="L74">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
