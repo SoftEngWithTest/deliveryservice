@@ -1,12 +1,14 @@
 package ie.gmit;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import org.json.simple.parser.ParseException;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Controller {
-    public static void main(String[] args) throws JsonProcessingException {
+    public static void main(String[] args) throws IOException, ParseException {
         ArrayList<Customer> customers;
         CustomerDB customerDB = new CustomerDB();
 
