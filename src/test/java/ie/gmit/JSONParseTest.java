@@ -1,8 +1,10 @@
 package ie.gmit;
 
+import org.json.simple.parser.ParseException;
 import org.junit.jupiter.api.*;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -27,7 +29,7 @@ public class JSONParseTest {
 
     @DisplayName("Checking readJSON Method Success")
     @Test
-    void testReadJSON() {
+    void testReadJSON() throws IOException, ParseException {
         myJSONParser = new JSONParse();
         myJSONParser.readJSON("customers.json");
     }
