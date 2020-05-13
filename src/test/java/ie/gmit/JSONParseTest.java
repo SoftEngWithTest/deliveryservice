@@ -3,11 +3,7 @@ package ie.gmit;
 import org.json.simple.parser.ParseException;
 import org.junit.jupiter.api.*;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class JSONParseTest {
     JSONParse myJSONParser;
