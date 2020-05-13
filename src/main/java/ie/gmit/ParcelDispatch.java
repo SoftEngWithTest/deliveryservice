@@ -41,7 +41,6 @@ public class ParcelDispatch {
      * This method is searching order in a list of "ready to dispatch"
      */
     public String searchOrder(String order){
-        // Driver driver = new Driver();//("576734","000000","Sam");
         String result = order ;//
         for(String ord : readyToDispatchList)
         {

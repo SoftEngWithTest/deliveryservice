@@ -26,6 +26,7 @@ public class Controller {
         }
 
         ParcelDispatch parcelDispatch = new ParcelDispatch();
+        DriverValidation dv = new DriverValidation();
         parcelDispatch.registerParcelReadyToDispatch();
 
         while (true)  {
@@ -38,6 +39,7 @@ public class Controller {
                     // Scanning barcode
                     Driver driver = new Driver(Label.orderId, "909088", "John Ward");
                     parcelDispatch.searchOrder(driver.getOrderId());
+                    dv.driverCheck(driver);
                     parcelDispatch.registerParcelDispatched(driver);
                     System.out.println("Driver name: " + driver.getDriverName() + "\nDriver ID: " + driver.getDriverId() + "\n" +
                             "\n***Label***\n" + Label.myList.get(Label.myList.size() - 1)+"\n***********");
@@ -49,6 +51,7 @@ public class Controller {
                     Scanner sc = new Scanner(System.in);
                     Driver dr = new Driver(sc.nextLine(), "909088", "John Ward");
                     parcelDispatch.searchOrder(dr.getOrderId());
+                    dv.driverCheck(dr);
                     parcelDispatch.registerParcelDispatched(dr);
                     System.out.println("Driver name: " + dr.getDriverName() + "\nDriver ID: " + dr.getDriverId() + "\nOrder ID: " +
                             dr.getOrderId() + "\nLabel: " + Label.myList.get(Label.myList.size() - 1));
