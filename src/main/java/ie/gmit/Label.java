@@ -1,6 +1,8 @@
 /* This class generates a label as a JSON Object which
    includes the customer's details (which is received as a Customer object)
    plus a randomly generated unique order ID
+
+   ---
  */
 
 package ie.gmit;
@@ -9,7 +11,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.simple.JSONObject;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
