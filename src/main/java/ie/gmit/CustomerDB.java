@@ -31,8 +31,7 @@ public class CustomerDB {
 
     public void updateDB(Customer customer) {
         customerDB.add(customer.getCustomerID());
-        System.out.println("ID: " + customer.getCustomerID() + " was added to the database");
-        System.out.println(customerDB);
+        System.out.println("Customer ID: " + customer.getCustomerID() + " was added to the database");
     }
 
     public ArrayList<Long> getCustomerDB() {

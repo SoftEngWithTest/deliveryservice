@@ -17,7 +17,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="IE"/>
     <property name="sun.boot.library.path" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.2.2\jbr\bin"/>
-    <property name="sun.java.command" value="C:\Users\ruair\AppData\Local\Temp\surefire9981379054661810603\surefirebooter4873972432125648912.jar C:\Users\ruair\AppData\Local\Temp\surefire9981379054661810603 2020-05-13T15-44-16_779-jvmRun1 surefire17025911775639356440tmp surefire_02990768787059606965tmp"/>
+    <property name="sun.java.command" value="C:\Users\ruair\AppData\Local\Temp\surefire16942596969412374043\surefirebooter10885614008802961947.jar C:\Users\ruair\AppData\Local\Temp\surefire16942596969412374043 2020-05-13T16-05-33_151-jvmRun1 surefire7248257988756583656tmp surefire_011869467016363431673tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\ruair\OneDrive\Desktop\deliveryservice\target\test-classes;C:\Users\ruair\OneDrive\Desktop\deliveryservice\target\classes;C:\Users\ruair\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.4.2\junit-jupiter-api-5.4.2.jar;C:\Users\ruair\.m2\repository\org\apiguardian\apiguardian-api\1.0.0\apiguardian-api-1.0.0.jar;C:\Users\ruair\.m2\repository\org\opentest4j\opentest4j\1.1.1\opentest4j-1.1.1.jar;C:\Users\ruair\.m2\repository\org\junit\platform\junit-platform-commons\1.4.2\junit-platform-commons-1.4.2.jar;C:\Users\ruair\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.10.3\jackson-databind-2.10.3.jar;C:\Users\ruair\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.10.3\jackson-annotations-2.10.3.jar;C:\Users\ruair\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.10.3\jackson-core-2.10.3.jar;C:\Users\ruair\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.4.2\junit-jupiter-engine-5.4.2.jar;C:\Users\ruair\.m2\repository\org\junit\platform\junit-platform-engine\1.4.2\junit-platform-engine-1.4.2.jar;C:\Users\ruair\.m2\repository\com\googlecode\json-simple\json-simple\1.1.1\json-simple-1.1.1.jar;C:\Users\ruair\.m2\repository\junit\junit\4.10\junit-4.10.jar;C:\Users\ruair\.m2\repository\org\hamcrest\hamcrest-core\1.1\hamcrest-core-1.1.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -34,7 +34,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\ruair\AppData\Local\Temp\surefire9981379054661810603\surefirebooter4873972432125648912.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\ruair\AppData\Local\Temp\surefire16942596969412374043\surefirebooter10885614008802961947.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.3+12-b304.56"/>
@@ -60,6 +60,6 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="testOrderIdFail" classname="ie.gmit.OrderTest" time="0.002"/>
-  <testcase name="testOrderIdSuccess" classname="ie.gmit.OrderTest" time="0"/>
+  <testcase name="testOrderIdFail" classname="ie.gmit.OrderTest" time="0"/>
+  <testcase name="testOrderIdSuccess" classname="ie.gmit.OrderTest" time="0.01"/>
 </testsuite>
