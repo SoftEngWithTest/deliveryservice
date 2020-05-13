@@ -33,14 +33,4 @@ public class JSONParseTest {
         myJSONParser = new JSONParse();
         myJSONParser.readJSON("customers.json");
     }
-
-    /*@DisplayName("Checking readJSON Method File Not Found")
-    @Test
-    void testReadJSONFileNotFound() {
-        myJSONParser = new JSONParse();
-        Exception e = assertThrows(FileNotFoundException.class, () -> {
-                myJSONParser.readJSON("c.json");
-        });
-        assertEquals(File Not Found);
-    }*/
 }
