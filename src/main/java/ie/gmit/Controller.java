@@ -17,14 +17,10 @@ public class Controller {
         for (Customer customer : customers) {
             Label label = new Label(customer);
 
-            // send customer to DB to check if customer exists
-            // update details if needed
-
             // If customer doesn't exist, then add them in
             if (customerDB.existsAlready(customer) == false) {
                 customerDB.updateDB(customer);
             }
-
         }
 
         ParcelDispatch parcelDispatch = new ParcelDispatch();
