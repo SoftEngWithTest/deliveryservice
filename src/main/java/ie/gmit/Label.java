@@ -46,8 +46,6 @@ public class Label {
         } else {
             // ALREADY EXISTS
             throw new IllegalArgumentException("ID already exists - regenerating ID");
-            //ID = (long)(Math.random() * (max - min + 1) + min);
-            // ...
         }
 
         return ID;
