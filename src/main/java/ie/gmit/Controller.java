@@ -67,12 +67,6 @@ public class Controller {
                 default:
 
             }
-
-            //switch case
-
-            //Line below for demo purpose
-
-
         }
     }
 }

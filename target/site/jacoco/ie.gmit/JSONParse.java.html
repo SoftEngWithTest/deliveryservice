@@ -12,11 +12,11 @@ import java.util.ArrayList;
 
 <span class="fc" id="L13">public class JSONParse {</span>
 
-    public static ArrayList&lt;Customer&gt; readJSON(String fileName) {
+    public static ArrayList&lt;Customer&gt; readJSON(String fileName) throws IOException, ParseException {
 <span class="fc" id="L16">        JSONParser jsonParser = new JSONParser();</span>
 <span class="fc" id="L17">        ArrayList&lt;Customer&gt; customers = new ArrayList&lt;&gt;();</span>
 
-        try {
+        //try {
 <span class="fc" id="L20">            Object obj = jsonParser.parse(new FileReader(fileName));</span>
 <span class="fc" id="L21">            JSONArray customerList = (JSONArray) obj;</span>
 
@@ -26,30 +26,26 @@ import java.util.ArrayList;
 <span class="fc" id="L26">                customers.add(c);</span>
 <span class="fc" id="L27">            }</span>
 
-<span class="nc" id="L29">        } catch (FileNotFoundException e) {</span>
-<span class="nc" id="L30">            e.printStackTrace();</span>
-<span class="nc" id="L31">        } catch (ParseException e) {</span>
-<span class="nc" id="L32">            e.printStackTrace();</span>
-<span class="nc" id="L33">        } catch (IOException e) {</span>
-<span class="nc" id="L34">            e.printStackTrace();</span>
-<span class="pc" id="L35">        }</span>
+        //} //catch (ParseException | IOException e) {
+            //e.printStackTrace();
+       // }
 
         // Return array list of Customers
-<span class="fc" id="L38">        return customers;</span>
+<span class="fc" id="L34">        return customers;</span>
     }
 
     public static Customer parseCustomerObject(JSONObject customerObject) {
-<span class="fc" id="L42">        long customerID = (long) customerObject.get(&quot;customerID&quot;);</span>
-<span class="fc" id="L43">        String firstName = (String) customerObject.get(&quot;firstName&quot;);</span>
-<span class="fc" id="L44">        String lastName = (String) customerObject.get(&quot;lastName&quot;);</span>
-<span class="fc" id="L45">        String email = (String) customerObject.get(&quot;email&quot;);</span>
-<span class="fc" id="L46">        String address = (String) customerObject.get(&quot;address&quot;);</span>
-<span class="fc" id="L47">        String county = (String) customerObject.get(&quot;county&quot;);</span>
-<span class="fc" id="L48">        String eircode = (String) customerObject.get(&quot;eircode&quot;);</span>
+<span class="fc" id="L38">        long customerID = (long) customerObject.get(&quot;customerID&quot;);</span>
+<span class="fc" id="L39">        String firstName = (String) customerObject.get(&quot;firstName&quot;);</span>
+<span class="fc" id="L40">        String lastName = (String) customerObject.get(&quot;lastName&quot;);</span>
+<span class="fc" id="L41">        String email = (String) customerObject.get(&quot;email&quot;);</span>
+<span class="fc" id="L42">        String address = (String) customerObject.get(&quot;address&quot;);</span>
+<span class="fc" id="L43">        String county = (String) customerObject.get(&quot;county&quot;);</span>
+<span class="fc" id="L44">        String eircode = (String) customerObject.get(&quot;eircode&quot;);</span>
 
-<span class="fc" id="L50">        Customer customer = new Customer(customerID, firstName, lastName, email, address, county, eircode);</span>
+<span class="fc" id="L46">        Customer customer = new Customer(customerID, firstName, lastName, email, address, county, eircode);</span>
 
-<span class="fc" id="L52">        return customer;</span>
+<span class="fc" id="L48">        return customer;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

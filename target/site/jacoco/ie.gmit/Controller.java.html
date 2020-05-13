@@ -26,51 +26,48 @@ import java.util.Scanner;
 <span class="nc" id="L26">        }</span>
 
 <span class="nc" id="L28">        ParcelDispatch parcelDispatch = new ParcelDispatch();</span>
-<span class="nc" id="L29">        parcelDispatch.registerParcelReadyToDispatch();</span>
+<span class="nc" id="L29">        DriverValidation dv = new DriverValidation();</span>
+<span class="nc" id="L30">        parcelDispatch.registerParcelReadyToDispatch();</span>
 
         while (true)  {
 
-<span class="nc" id="L33">            System.out.println(&quot;Select option: \n1: Scan barcode\n2: Type in order ID\n3: Confirm delivery\n&quot;);</span>
-<span class="nc" id="L34">            Scanner s = new Scanner(System.in);</span>
-<span class="nc" id="L35">            int i = s.nextInt();</span>
-<span class="nc bnc" id="L36" title="All 4 branches missed.">            switch (i) {</span>
+<span class="nc" id="L34">            System.out.println(&quot;Select option: \n1: Scan barcode\n2: Type in order ID\n3: Confirm delivery\n&quot;);</span>
+<span class="nc" id="L35">            Scanner s = new Scanner(System.in);</span>
+<span class="nc" id="L36">            int i = s.nextInt();</span>
+<span class="nc bnc" id="L37" title="All 4 branches missed.">            switch (i) {</span>
                 case 1:
                     // Scanning barcode
-<span class="nc" id="L39">                    Driver driver = new Driver(Label.orderId, &quot;909088&quot;, &quot;John Ward&quot;);</span>
-<span class="nc" id="L40">                    parcelDispatch.searchOrder(driver.getOrderId());</span>
-<span class="nc" id="L41">                    parcelDispatch.registerParcelDispatched(driver);</span>
-<span class="nc" id="L42">                    System.out.println(&quot;Driver name: &quot; + driver.getDriverName() + &quot;\nDriver ID: &quot; + driver.getDriverId() + &quot;\n&quot; +</span>
-<span class="nc" id="L43">                            &quot;\n***Label***\n&quot; + Label.myList.get(Label.myList.size() - 1)+&quot;\n***********&quot;);</span>
-<span class="nc" id="L44">                    Label.myList.remove(Label.myList.size() - 1);</span>
+<span class="nc" id="L40">                    Driver driver = new Driver(Label.orderId, &quot;909088&quot;, &quot;John Ward&quot;);</span>
+<span class="nc" id="L41">                    parcelDispatch.searchOrder(driver.getOrderId());</span>
+<span class="nc" id="L42">                    dv.driverCheck(driver);</span>
+<span class="nc" id="L43">                    parcelDispatch.registerParcelDispatched(driver);</span>
+<span class="nc" id="L44">                    System.out.println(&quot;Driver name: &quot; + driver.getDriverName() + &quot;\nDriver ID: &quot; + driver.getDriverId() + &quot;\n&quot; +</span>
+<span class="nc" id="L45">                            &quot;\n***Label***\n&quot; + Label.myList.get(Label.myList.size() - 1)+&quot;\n***********&quot;);</span>
+<span class="nc" id="L46">                    Label.myList.remove(Label.myList.size() - 1);</span>
 
-<span class="nc" id="L46">                    break;</span>
+<span class="nc" id="L48">                    break;</span>
                 case 2:
                     // Manually type in order ID
-<span class="nc" id="L49">                    Scanner sc = new Scanner(System.in);</span>
-<span class="nc" id="L50">                    Driver dr = new Driver(sc.nextLine(), &quot;909088&quot;, &quot;John Ward&quot;);</span>
-<span class="nc" id="L51">                    parcelDispatch.searchOrder(dr.getOrderId());</span>
-<span class="nc" id="L52">                    parcelDispatch.registerParcelDispatched(dr);</span>
-<span class="nc" id="L53">                    System.out.println(&quot;Driver name: &quot; + dr.getDriverName() + &quot;\nDriver ID: &quot; + dr.getDriverId() + &quot;\nOrder ID: &quot; +</span>
-<span class="nc" id="L54">                            dr.getOrderId() + &quot;\nLabel: &quot; + Label.myList.get(Label.myList.size() - 1));</span>
-<span class="nc" id="L55">                    break;</span>
+<span class="nc" id="L51">                    Scanner sc = new Scanner(System.in);</span>
+<span class="nc" id="L52">                    Driver dr = new Driver(sc.nextLine(), &quot;909088&quot;, &quot;John Ward&quot;);</span>
+<span class="nc" id="L53">                    parcelDispatch.searchOrder(dr.getOrderId());</span>
+<span class="nc" id="L54">                    dv.driverCheck(dr);</span>
+<span class="nc" id="L55">                    parcelDispatch.registerParcelDispatched(dr);</span>
+<span class="nc" id="L56">                    System.out.println(&quot;Driver name: &quot; + dr.getDriverName() + &quot;\nDriver ID: &quot; + dr.getDriverId() + &quot;\nOrder ID: &quot; +</span>
+<span class="nc" id="L57">                            dr.getOrderId() + &quot;\nLabel: &quot; + Label.myList.get(Label.myList.size() - 1));</span>
+<span class="nc" id="L58">                    break;</span>
 
                 case 3:
                     // Confirm delivery
-<span class="nc" id="L59">                    Scanner scanner = new Scanner(System.in);</span>
-<span class="nc" id="L60">                    System.out.println(&quot;ENTER order ID : &quot;);</span>
-<span class="nc" id="L61">                    parcelDispatch.searchDispatched(scanner.nextLine());</span>
+<span class="nc" id="L62">                    Scanner scanner = new Scanner(System.in);</span>
+<span class="nc" id="L63">                    System.out.println(&quot;ENTER order ID : &quot;);</span>
+<span class="nc" id="L64">                    parcelDispatch.searchDispatched(scanner.nextLine());</span>
 
 
                 default:
 
             }
-
-            //switch case
-
-            //Line below for demo purpose
-
-
-<span class="nc" id="L73">        }</span>
+<span class="nc" id="L70">        }</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

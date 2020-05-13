@@ -80,5 +80,4 @@ public class ParcelDispatch {
         System.out.println("Parcel ID number " + dispatchedList.get(i).getOrderId()+" registered as DELIVERED");
         dispatchedList.remove(i);
     }
-
 }

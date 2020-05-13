@@ -12,26 +12,17 @@ import java.util.ArrayList;
 
 public class JSONParse {
 
-    public static ArrayList<Customer> readJSON(String fileName) {
+    public static ArrayList<Customer> readJSON(String fileName) throws IOException, ParseException {
         JSONParser jsonParser = new JSONParser();
         ArrayList<Customer> customers = new ArrayList<>();
 
-        try {
-            Object obj = jsonParser.parse(new FileReader(fileName));
-            JSONArray customerList = (JSONArray) obj;
+        Object obj = jsonParser.parse(new FileReader(fileName));
+        JSONArray customerList = (JSONArray) obj;
 
-            for(Object customer : customerList) {
-                JSONObject customerObject = (JSONObject) customer;
-                Customer c = parseCustomerObject(customerObject);
-                customers.add(c);
-            }
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        for(Object customer : customerList) {
+            JSONObject customerObject = (JSONObject) customer;
+            Customer c = parseCustomerObject(customerObject);
+            customers.add(c);
         }
 
         // Return array list of Customers
